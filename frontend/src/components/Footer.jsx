@@ -38,6 +38,7 @@ function Footer() {
           <li
             onClick={() => {
               navigate("/about");
+               scrollTo(0,0)
             }}
           >
             <button>About</button>
@@ -45,12 +46,14 @@ function Footer() {
           <li
             onClick={() => {
               navigate("/contact");
+               scrollTo(0,0)
             }}
           >
             <button>Contact us</button>
           </li>
           <li onClick={()=> {
             navigate('/doctors')
+            ; scrollTo(0,0)
           }}><button>Privacy policy</button></li>
         </ul>
       </div>
