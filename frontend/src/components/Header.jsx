@@ -1,7 +1,8 @@
 import React from 'react';
 import { assets } from '../assets/assets'; // Ensure correct path to assets.js
-
+import { useNavigate } from 'react-router-dom';
 function Header() {
+  const navigate = useNavigate(); // Ensure correct import of useNavigate from react-router-dom
   return (
     <div className="flex flex-col md:flex-row flex-wrap bg-primary rounded-lg px-6 md:px-10 lg:px-20">
       {/* Left Side */}
@@ -9,7 +10,7 @@ function Header() {
         <p className="text-3xl md:text-4xl lg:text-5xl text-white font-semibold leading-tight">
           Book Appointment <br /> With Trusted Doctors
         </p>
-
+        
         <div className="flex flex-col md:flex-row items-center gap-3 text-white text-sm font-light">
           {/* Group Profiles Image */}
           <img className="w-28" src={assets.group_profiles} alt="Group Profiles" />
@@ -21,11 +22,25 @@ function Header() {
         </div>
 
         <a
-          href="#speciality"
-          className="flex items-center gap-2 bg-white px-8 py-3 rounded-full text-gray-600 text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300"
-        >
-          Book Appointment <img className="w-3" src={assets.arrow_icon} alt="Arrow Icon" />
-        </a>
+  href="#speciality"
+  className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
+>
+  Book Appointment 
+  <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
+</a>
+
+<button
+  onClick={() => {
+    navigate('/login'); // Redirects to the login page
+    window.scrollTo(0, 0); // Scroll to top after redirection
+  }}
+  className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
+>
+  Create Account <span className="text-[10px] text-gray-500">(Guest Login)</span>
+  <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
+</button>
+
+
       </div>
 
       {/* Right Side */}
