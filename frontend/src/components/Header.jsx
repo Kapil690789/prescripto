@@ -1,8 +1,20 @@
-import React from 'react';
-import { assets } from '../assets/assets'; // Ensure correct path to assets.js
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { assets } from '../assets/assets'; // Ensure correct path to assets.js
+
 function Header() {
   const navigate = useNavigate(); // Ensure correct import of useNavigate from react-router-dom
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleCreateAccountClick = () => {
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false); // Automatically close popup after 2 seconds
+      navigate('/login'); // Redirect to the login page
+      window.scrollTo(0, 0); // Scroll to top
+    }, 2000);
+  };
+
   return (
     <div className="flex flex-col md:flex-row flex-wrap bg-primary rounded-lg px-6 md:px-10 lg:px-20">
       {/* Left Side */}
@@ -22,25 +34,20 @@ function Header() {
         </div>
 
         <a
-  href="#speciality"
-  className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
->
-  Book Appointment 
-  <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
-</a>
+          href="#speciality"
+          className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
+        >
+          Book Appointment 
+          <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
+        </a>
 
-<button
-  onClick={() => {
-    navigate('/login'); // Redirects to the login page
-    window.scrollTo(0, 0); // Scroll to top after redirection
-  }}
-  className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
->
-  Create Account <span className="text-[10px] text-gray-500">(Guest Login)</span>
-  <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
-</button>
-
-
+        <button
+          onClick={handleCreateAccountClick}
+          className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
+        >
+          Create Account <span className="text-[10px] text-gray-500">(Guest Login)</span>
+          <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
+        </button>
       </div>
 
       {/* Right Side */}
@@ -51,6 +58,21 @@ function Header() {
           alt="Header"
         />
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg p-6 shadow-lg w-72 text-center relative">
+            <p className="text-gray-600 font-semibold mb-4">Please wait, our data is loading...</p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition duration-200"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
