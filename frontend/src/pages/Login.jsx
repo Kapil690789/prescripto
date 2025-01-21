@@ -76,6 +76,10 @@ function Login() {
     }
   }, [token]);
 
+  const navigateToAdminDoctorPage = () => {
+    window.location.href = "https://prescripto-admin-veng.onrender.com/add-doctor";
+  };
+
   return (
     <form onSubmit={onSubmitHandler} className="min-h-[80vh] flex items-center">
       <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px] sm:min-w-96 border rounded-xl text-zinc-600 text-sm shadow-lg">
@@ -146,17 +150,29 @@ function Login() {
           </p>
         )}
         <p className="text-sm mt-4 flex items-center justify-center gap-2 animate-bounce">
-  <span className="bg-primary text-white px-3 py-1 rounded-full font-medium">
-    Guest Login
-  </span>
-  <a
-    onClick={guestLoginHandler}
-    className="text-primary font-semibold underline cursor-pointer hover:text-primary-dark hover:scale-105 transition-transform duration-200"
-  >
-    Click here
-  </a>
-</p>
+          <span className="bg-primary text-white px-3 py-1 rounded-full font-medium">
+            Guest Login
+          </span>
+          <a
+            onClick={guestLoginHandler}
+            className="text-primary font-semibold underline cursor-pointer hover:text-primary-dark hover:scale-105 transition-transform duration-200"
+          >
+            Click here
+          </a>
+        </p>
 
+        {/* Admin/Doctor Guest Login */}
+        <p className="text-sm mt-4 flex items-center justify-center gap-2 animate-bounce">
+          <span className="bg-primary text-white px-3 py-1 rounded-full font-medium">
+            Admin/Doctor Login (Guest login)
+          </span>
+          <a
+            onClick={navigateToAdminDoctorPage}
+            className="text-primary font-semibold underline cursor-pointer hover:text-primary-dark hover:scale-105 transition-transform duration-200"
+          >
+            Click here
+          </a>
+        </p>
       </div>
     </form>
   );

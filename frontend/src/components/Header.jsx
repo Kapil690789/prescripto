@@ -9,10 +9,15 @@ function Header() {
   const handleCreateAccountClick = () => {
     setShowPopup(true);
     setTimeout(() => {
-      setShowPopup(false); // Automatically close popup after 2 seconds
+      setShowPopup(false); // Automatically close popup after 1 second
       navigate('/login'); // Redirect to the login page
       window.scrollTo(0, 0); // Scroll to top
-    }, 2000);
+    }, 1000); // Reduced to 1 second
+  };
+
+  // Navigate to Admin/Doctor page
+  const handleAdminDoctorLogin = () => {
+    window.location.href = "https://prescripto-admin-veng.onrender.com/add-doctor";
   };
 
   return (
@@ -41,11 +46,21 @@ function Header() {
           <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
         </a>
 
+        {/* Create Account Button */}
         <button
           onClick={handleCreateAccountClick}
           className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
         >
           Create Account <span className="text-[10px] text-gray-500">(Guest Login)</span>
+          <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
+        </button>
+
+        {/* Admin/Doctor Login Button */}
+        <button
+          onClick={handleAdminDoctorLogin}
+          className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300 mt-4"
+        >
+          Admin/Doctor Login (Guest Login)
           <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
         </button>
       </div>
