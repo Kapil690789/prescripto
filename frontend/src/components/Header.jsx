@@ -19,6 +19,9 @@ function Header() {
   const handleAdminDoctorLogin = () => {
     window.location.href = "https://prescripto-admin-veng.onrender.com/add-doctor";
   };
+  const handleDoctorandchat  = () =>{
+    window.location.href = "https://chat-app-zeta-tawny.vercel.app"
+  }
 
   return (
     <div className="flex flex-col md:flex-row flex-wrap bg-primary rounded-lg px-6 md:px-10 lg:px-20">
@@ -63,6 +66,17 @@ function Header() {
           Admin/Doctor Login (Guest Login)
           <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
         </button>
+
+        <button
+          onClick={handleDoctorandchat}
+          className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300 mt-4"
+        >
+          Chat between Doctor and User (Guest Login)
+          <img className="w-4 h-4" src={assets.arrow_icon} alt="Arrow Icon" />
+        </button>
+        
+        
+
       </div>
 
       {/* Right Side */}
