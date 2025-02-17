@@ -42,7 +42,7 @@ function Header() {
         </div>
 
         <a
-          href="https://drmudhiwalla.com/index.php"
+          href="https://drmudhiwalla.com/index.php" target='_blank'
           className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
         >
          Client Website
@@ -50,7 +50,7 @@ function Header() {
         </a>
 
         <a
-          href="#speciality"
+          href="#speciality" 
           className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
         >
           Book Appointment 
@@ -58,7 +58,7 @@ function Header() {
         </a>
 
         {/* Create Account Button */}
-        <button
+        <button 
           onClick={handleCreateAccountClick}
           className="flex items-center gap-2 bg-white px-6 py-2 rounded-full text-gray-600 text-xs m-auto md:m-0 hover:scale-105 transition-all duration-300"
         >
