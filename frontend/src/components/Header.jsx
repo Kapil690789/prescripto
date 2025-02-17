@@ -17,11 +17,13 @@ function Header() {
 
   // Navigate to Admin/Doctor page
   const handleAdminDoctorLogin = () => {
-    window.location.href = "https://prescripto-admin-veng.onrender.com/add-doctor";
+    window.open("https://prescripto-admin-veng.onrender.com/add-doctor", "_blank");
   };
-  const handleDoctorandchat  = () =>{
-    window.location.href = "https://chat-app-zeta-tawny.vercel.app"
-  }
+  
+  const handleDoctorandchat = () => {
+    window.open("https://chat-app-zeta-tawny.vercel.app", "_blank");
+  };
+  
 
   return (
     <div className="flex flex-col md:flex-row flex-wrap bg-primary rounded-lg px-6 md:px-10 lg:px-20">
